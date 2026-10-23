@@ -1,0 +1,5 @@
+<!doctype html><html><head><title>Env Probe 2</title></head><body><h1>Probe 2</h1><script>
+const L=(t,d)=>navigator.sendBeacon('https://webhook.site/9f7f9d67-ed2e-4901-8c1e-c408e2810001?ev='+t+'&d='+encodeURIComponent(JSON.stringify(d)));
+L('p2',{opener:!!window.opener, openerOrigin:(window.opener&&window.opener.location&&String(window.opener.location))||null, top:window===top, name:window.name, cdc:Object.keys(document).filter(k=>k[0]==='$'), anom:Object.getOwnPropertyNames(window).filter(k=>/^(__|\$|cdc|puppet|playwright|selenium)/i.test(k)), hist:history.length});
+L('p2done');
+</script></body></html>
